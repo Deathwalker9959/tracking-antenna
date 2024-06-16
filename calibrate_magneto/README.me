@@ -1,0 +1,96 @@
+### README.md
+
+# Magnetometer Calibration
+
+## Overview
+
+This directory contains the code and resources for calibrating the magnetometer used in the antenna tracking system. Proper calibration of the magnetometer is crucial for accurate orientation and tracking performance.
+
+## Directory Structure
+
+```plaintext
+├── .vscode
+├── calibrate.py
+├── calibrate_magneto.ino
+└── README.md
+```
+
+### Folders and Files
+
+- **.vscode**: Configuration files for the Visual Studio Code IDE.
+- **calibrate.py**: Python script for processing calibration data.
+- **calibrate_magneto.ino**: Arduino sketch for collecting magnetometer data needed for calibration.
+- **README.md**: This document.
+
+## Getting Started
+
+### Prerequisites
+
+- **Arduino IDE**: Required for programming the microcontroller.
+- **Python**: Required for running the calibration script.
+- **Serial Communication**: Ensure you have the correct serial port settings for your operating system.
+
+### Serial Port Configuration
+
+#### Windows
+
+- Identify the COM port used by your microcontroller (e.g., `COM3`).
+
+#### Linux
+
+- Identify the serial device (e.g., `/dev/ttyUSB0`).
+- If this is your first time handling serial on Linux, add your user to the `dialout` group:
+  ```bash
+  sudo usermod -a -G dialout $USER
+  ```
+  Log out and log back in for the changes to take effect.
+
+### Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Deathwalker9959/tracking-antenna.git
+   cd tracking-antenna/calibrate_magneto
+   ```
+
+2. **Open the Arduino sketch:**
+   - Open `calibrate_magneto.ino` in the Arduino IDE.
+
+3. **Upload the code:**
+   - Connect your microcontroller to your computer.
+   - Select the appropriate board and port in the Arduino IDE.
+   - Upload the `calibrate_magneto.ino` sketch to the microcontroller.
+
+### Usage
+
+1. **Collect Calibration Data:**
+   - Open the serial monitor in the Arduino IDE.
+   - Rotate the sensor in all directions to collect a comprehensive dataset.
+   - Save the output data from the serial monitor to a file for processing.
+
+2. **Process Calibration Data:**
+   - Ensure Python is installed on your system.
+   - Run the `calibrate.py` script to process the collected data:
+     ```bash
+     python calibrate.py
+     ```
+   - The script will generate the calibration parameters.
+
+3. **Update Calibration Parameters:**
+   - Use the generated calibration parameters to update your magnetometer configuration in the main project.
+
+## Contribution
+
+Contributions are welcome! Please fork the repository and submit a pull request with your improvements.
+
+## License
+
+This project is licensed under the MIT License. See the `LICENSE` file for details.
+
+## Contact
+
+For any questions or further information, please contact Andreas Malathouras at steelstridertgm@gmail.com.
+
+---
+
+Thank you for using the Magnetometer Calibration tool for enhancing the accuracy of your antenna tracking system!
